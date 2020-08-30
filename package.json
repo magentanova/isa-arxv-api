@@ -1,0 +1,28 @@
+{
+  "name": "isa-arxv-api",
+  "version": "1.0.0",
+  "description": "api for isa-arxv",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "PORT=5000 nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/magentanova/isa-arxv-api.git"
+  },
+  "author": "justin richards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/magentanova/isa-arxv-api/issues"
+  },
+  "homepage": "https://github.com/magentanova/isa-arxv-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.742.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
