@@ -44,7 +44,6 @@ const upload = multer({
             title,
             filename
           } = req.body;
-          if (type)
           cb(null,`${year}/${category}/${type}/${order}/${filename}`);
         },
         shouldTransform: function(req, file, cb) {
@@ -63,7 +62,7 @@ const upload = multer({
                 title
               } = req.body;
               let nameToWrite = filename;
-              if (title) {
+              if (title && title !== "undefined") {
                 const ext = filename.split('.')[filename.split('.').length - 1];
                 nameToWrite = title + '.' + ext;
               }
