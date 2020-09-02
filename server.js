@@ -82,7 +82,7 @@ const upload = multer({
     limits: {
       fileSize: "15gb"
     }
-  });
+  }).single('file');
   
 
 app.get('/list/all', (req, res) => {
@@ -97,8 +97,16 @@ app.get('/list/:key', (req, res) => {
     .then(data => res.send(data));
 })
 
-app.post('/upload', upload.single('file'), (req, res) => {
-  return res.json("Uploaded!");
+app.post('/upload', (req, res, next) => {
+  upload(req, res, err => {
+    if (err) {
+      console.log(err.message);
+      return res.status(400).json({
+        error: err.message
+      });
+    }
+    return res.json("Uploaded!");  
+  })
 })
  
 app.get('/head/:key', (req, res) => {
